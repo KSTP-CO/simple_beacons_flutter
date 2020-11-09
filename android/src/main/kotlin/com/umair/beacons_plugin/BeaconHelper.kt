@@ -123,9 +123,15 @@ open class BeaconHelper(var context: Context) : BeaconConsumer, BeaconsPlugin.Co
         //TxPower
         val txPower = b.txPower.toString()
 
+
+        //mfgReserved
+        val mfgReserved = b.dataFields.get(0).toInt();
+
+
         //Distance
         val distance1 = b.distance
         val distance = (Math.round(distance1 * 100.0) / 100.0).toString()
+
 
         val message = Beacon(
                 name = identifier,
@@ -136,6 +142,7 @@ open class BeaconHelper(var context: Context) : BeaconConsumer, BeaconsPlugin.Co
                 distance = distance,
                 rssi = rssi,
                 txPower = txPower,
+                mfgReserved = mfgReserved,
                 proximity = Beacon.getProximityOfBeacon(b).value,
                 scanTime = getReadableTime(System.currentTimeMillis())
         ).toString()

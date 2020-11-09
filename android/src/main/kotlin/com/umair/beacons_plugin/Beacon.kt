@@ -10,7 +10,9 @@ data class Beacon(
         var scanTime: String = "",
         var macAddress: String = "",
         var rssi: String = "",
-        var txPower: String = ""
+        var txPower: String = "",
+        var mfgReserved: Int = 0
+
 ) {
 
     override fun toString(): String {
@@ -25,6 +27,7 @@ data class Beacon(
                 "  \"scanTime\": \"$scanTime\",\n" +
                 "  \"rssi\": \"$rssi\",\n" +
                 "  \"txPower\": \"$txPower\"\n" +
+                "  \"mfgReserved\": \"$mfgReserved\"\n" +
                 "}"
     }
 
